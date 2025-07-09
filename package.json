@@ -1,0 +1,22 @@
+{
+  "name": "new-demo",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test && node utils/update-performance-report.js",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed"
+  },
+  "dependencies": {
+    "playwright": "^1.53.0",
+    "playwright-core": "^1.53.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.1"
+  }
+}

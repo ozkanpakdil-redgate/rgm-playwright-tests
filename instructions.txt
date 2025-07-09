@@ -1,0 +1,7 @@
+1. Navigate to https://monitor.red-gate.com/
+1.1 check already written tests and exclude those scenarios
+2. Browse through everywhere and all links
+3. Test all functionality, like filtering sorting and anything you can find
+4. First finish all testing after that make sure these tests have performance column, meaning every page or functionalty will have performance metrics and record them and prepare a full report.
+5. in the future I want to alarm if any feature/functionality get slower I want to be warned and reported.
+- write these in node project, this project has the latest playwright already do not need to update package json for that

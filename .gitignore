@@ -1,3 +1,10 @@
+/performance-metrics/
+/performance-reports/
+/performance-snapshots/
+/screenshots/
+/test-reports/
+/test-results/
+
 # Logs
 logs
 *.log
