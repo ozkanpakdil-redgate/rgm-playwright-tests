@@ -132,7 +132,7 @@ test.describe('Public Alert Inbox Tests', () => {
     // Verify dropdown contains expected options
     const dropdown = timeRangeCombobox;
     const optionTexts = await dropdown.locator('option').allTextContents();
-    for (const option of ['15 minutes','1 hour','6 hours','12 hours','1 day','7 days','30 days']) {
+    for (const option of ['15 minutes','1 hour','6 hours','12 hours','1 day','1 week','2 weeks']) {
       expect(optionTexts).toContain(option);
     }
     

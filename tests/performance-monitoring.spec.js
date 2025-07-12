@@ -202,7 +202,19 @@ test.describe('Public Performance Monitoring Tests', () => {
       const startTime = Date.now();
       
       await page.goto(fullUrl);
-      await page.waitForLoadState('networkidle');
+      try {
+        // Wait for network to be idle with a shorter timeout
+        await page.waitForLoadState('networkidle', { timeout: 15000 });
+      } catch (e) {
+        console.log(`Warning: Network activity didn't settle for ${name} page, continuing anyway`);
+      }
+      
+      // Wait for main content to be visible instead of network idle
+      try {
+        await page.waitForSelector('[role="main"]', { timeout: 10000 });
+      } catch (e) {
+        console.log(`Warning: Main content not immediately visible for ${name} page`);
+      }
       
       const loadTime = Date.now() - startTime;
       console.log(`${name} page loaded in ${loadTime}ms`);

@@ -1,71 +1,119 @@
-# Performance Report
+# Performance Test Report
 
-## Overview
+## Test Run Summary
+- Total Duration: 419283ms
+- Tests Passed: undefined
+- Tests Failed: undefined
+- Total Tests: undefined
 
-This file contains the performance metrics for the RGM Playwright tests. Metrics are updated after each test run.
+## Page Load Times
 
-## Latest Test Results (July 8, 2025)
+## Navigation Times
+- basic: 11625.00ms average
+- global: 14346.00ms average
+- main: 133476.67ms average
+- utility: 25241.67ms average
 
-### Test Summary
+## Critical Operations
 
-- Total Duration: 6.6 minutes
-- Tests Passed: 110
-- Tests Failed: 10
-- Total Tests: 120
+## Performance Alerts
+- [Timeout Alerts] should verify alert inbox structure and filters exceeded timeout of 60000ms
+- [Timeout Alerts] should verify alert list controls exceeded timeout of 60000ms
+- [Timeout Alerts] should test analysis page functionality exceeded timeout of 60000ms
+- [Timeout Alerts] should verify alert history section exceeded timeout of 60000ms
+- [Timeout Alerts] should monitor reports page performance exceeded timeout of 60000ms
+- [Timeout Alerts] should monitor reports page performance exceeded timeout of 60000ms
+- [Timeout Alerts] should verify alert history section exceeded timeout of 60000ms
+- [Timeout Alerts] should verify action links exceeded timeout of 60000ms
+- [Timeout Alerts] should test analysis page functionality exceeded timeout of 60000ms
+- [Timeout Alerts] should analyze response times across public pages exceeded timeout of 60000ms
+- [Timeout Alerts] should analyze response times across public pages exceeded timeout of 60000ms
+- [Timeout Alerts] should analyze response times across public pages exceeded timeout of 60000ms
+- [Timeout Alerts] should analyze response times across public pages exceeded timeout of 60000ms
+- [Timeout Alerts] should analyze response times across public pages exceeded timeout of 60000ms
+- [Timeout Alerts] should analyze response times across public pages exceeded timeout of 60000ms
 
-### Page Load Times
+## Test Failures
+- should test reports page functionality: Error: page.goto: NS_ERROR_NET_TIMEOUT
+Call log:
+[2m  - navigating to "https://monitor.red-gate.com/reports", waiting until "load"[22m
 
-- Overview Page: 2,991ms - 13,869ms
-- Alerts Page: 2,859ms - 9,641ms
-- Analysis Page: 6,123ms - 34,318ms
-- Reports Page: 5,766ms - 7,252ms
-- Estate Page: 1,494ms - 1,945ms
+- should monitor reports page performance: Error: page.goto: NS_ERROR_NET_TIMEOUT
+Call log:
+[2m  - navigating to "https://monitor.red-gate.com/Reports", waiting until "load"[22m
 
-### Navigation Performance
+- should verify main navigation structure: Error: [31mTimed out 10000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m()[22m
 
-- Overview Navigation: 3,573ms - 64,902ms
-- Alerts Navigation: 4,264ms - 14,440ms
-- Analysis Navigation: 6,757ms - 80,896ms
-- Reports Navigation: 877ms - 34,073ms
-- Estate Navigation: 61,502ms - 61,971ms
+Locator: getByRole('link', { name: 'Alerts' }).first()
+Expected: visible
+Received: <element(s) not found>
+Call log:
+[2m  - Expect "toBeVisible" with timeout 10000ms[22m
+[2m  - waiting for getByRole('link', { name: 'Alerts' }).first()[22m
 
-### Critical Operations
+- should test alert time range filter: Error: [31mTimed out 10000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveValue[2m([22m[32mexpected[39m[2m)[22m
 
-- Filter Controls: 15,665ms - 23,707ms
-- Dashboard Loading: 3,399ms - 17,215ms
-- Empty State Tests: 30,830ms - 35,030ms
+Locator: getByRole('combobox', { name: 'Within', exact: true })
+Expected string: [32m"1[7m day[27m"[39m
+Received string: [31m"1[7m440[27m"[39m
+Call log:
+[2m  - Expect "toHaveValue" with timeout 10000ms[22m
+[2m  - waiting for getByRole('combobox', { name: 'Within', exact: true })[22m
+[2m    13 × locator resolved to <select id="relative-minutes" class="relative-time-dropdown">…</select>[22m
+[2m       - unexpected value "1440"[22m
 
-### Performance Alerts
+- should test alert time range filter: Error: [31mTimed out 10000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveValue[2m([22m[32mexpected[39m[2m)[22m
 
-1. High Navigation Times:
-   - Estate page navigation consistently above 60s threshold
-   - Analysis page navigation spikes up to 80s
-2. Slow Page Loads:
-   - Analysis page loads taking up to 34s
-   - Reports page occasionally exceeding 7s
-3. UI Operation Delays:
-   - Filter controls consistently above 15s
-   - Empty state tests averaging above 30s
+Locator: getByRole('combobox', { name: 'Within', exact: true })
+Expected string: [32m"1[7m day[27m"[39m
+Received string: [31m"1[7m440[27m"[39m
+Call log:
+[2m  - Expect "toHaveValue" with timeout 10000ms[22m
+[2m  - waiting for getByRole('combobox', { name: 'Within', exact: true })[22m
+[2m    12 × locator resolved to <select id="relative-minutes" class="relative-time-dropdown">…</select>[22m
+[2m       - unexpected value "1440"[22m
 
-### Failed Tests Analysis
+- should test alert time range filter: Error: [31mTimed out 10000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveValue[2m([22m[32mexpected[39m[2m)[22m
 
-- Alert time range filter tests failed across all browsers (missing "7 days" option)
-- Performance monitoring timeouts on page load tests (60s limit exceeded)
+Locator: getByRole('combobox', { name: 'Within', exact: true })
+Expected string: [32m"1[7m day[27m"[39m
+Received string: [31m"1[7m440[27m"[39m
+Call log:
+[2m  - Expect "toHaveValue" with timeout 10000ms[22m
+[2m  - waiting for getByRole('combobox', { name: 'Within', exact: true })[22m
+[2m    13 × locator resolved to <select id="relative-minutes" class="relative-time-dropdown">…</select>[22m
+[2m       - unexpected value "1440"[22m
 
-## Historical Data
+- should test alert time range filter: Error: [31mTimed out 10000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveValue[2m([22m[32mexpected[39m[2m)[22m
 
-This is the first test run after implementing the new minimal performance reporting structure. Historical data will be accumulated in subsequent runs.
+Locator: getByRole('combobox', { name: 'Within', exact: true })
+Expected string: [32m"1[7m day[27m"[39m
+Received string: [31m"1[7m440[27m"[39m
+Call log:
+[2m  - Expect "toHaveValue" with timeout 10000ms[22m
+[2m  - waiting for getByRole('combobox', { name: 'Within', exact: true })[22m
+[2m    13 × locator resolved to <select id="relative-minutes" class="relative-time-dropdown">…</select>[22m
+[2m       - unexpected value "1440"[22m
 
-## How to Read This Report
+- should test alert time range filter: Error: [31mTimed out 10000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveValue[2m([22m[32mexpected[39m[2m)[22m
 
-1. All times are in milliseconds (ms)
-2. Ranges show minimum - maximum observed times
-3. Performance alerts highlight areas exceeding thresholds:
-   - Page Load: > 2000ms
-   - Navigation: > 3000ms
-   - Operations: > 3000ms
-4. Test failures are highlighted with their root cause
+Locator: getByRole('combobox', { name: 'Within', exact: true })
+Expected string: [32m"1[7m day[27m"[39m
+Received string: [31m"1[7m440[27m"[39m
+Call log:
+[2m  - Expect "toHaveValue" with timeout 10000ms[22m
+[2m  - waiting for getByRole('combobox', { name: 'Within', exact: true })[22m
+[2m    13 × locator resolved to <select id="relative-minutes" class="relative-time-dropdown">…</select>[22m
+[2m       - unexpected value "1440"[22m
 
----
+- should test alert time range filter: Error: [31mTimed out 10000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveValue[2m([22m[32mexpected[39m[2m)[22m
 
-*Note: This consolidated report replaces the previous multi-folder reporting structure for better readability and reduced disk usage.*
+Locator: getByRole('combobox', { name: 'Within', exact: true })
+Expected string: [32m"1[7m day[27m"[39m
+Received string: [31m"1[7m440[27m"[39m
+Call log:
+[2m  - Expect "toHaveValue" with timeout 10000ms[22m
+[2m  - waiting for getByRole('combobox', { name: 'Within', exact: true })[22m
+[2m    13 × locator resolved to <select id="relative-minutes" class="relative-time-dropdown">…</select>[22m
+[2m       - unexpected value "1440"[22m
+
