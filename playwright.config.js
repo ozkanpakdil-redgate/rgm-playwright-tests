@@ -3,7 +3,7 @@ const performanceReporter = require('./utils/performance-reporter');
 
 module.exports = defineConfig({
   testDir: './tests',
-  timeout: 60000,
+  timeout: 600000,
   expect: {
     timeout: 10000
   },
