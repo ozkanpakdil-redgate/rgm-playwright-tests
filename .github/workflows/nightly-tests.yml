@@ -33,6 +33,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Playwright Browsers
+        run: |
+          # Force remove the cache to ensure clean install
+          rm -rf /home/runner/.cache/ms-playwright
+          npx playwright install --with-deps chromium firefox webkit
+          npx playwright install-deps
+
       - name: Run Playwright tests
         run: npm test
         env:

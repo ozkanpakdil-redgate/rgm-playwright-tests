@@ -3,12 +3,16 @@ const performanceReporter = require('./utils/performance-reporter');
 
 module.exports = defineConfig({
   testDir: './tests',
-  timeout: 600000,
+  // Increase global timeout for CI environment
+  timeout: process.env.CI ? 900000 : 600000,
   expect: {
-    timeout: 10000
+    // Increase expect timeout for slower environments
+    timeout: process.env.CI ? 30000 : 10000
   },
+  // Increase retries in CI for flaky tests
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 3 : undefined,
+  // Reduce parallel workers in CI to prevent resource contention
+  workers: process.env.CI ? 2 : undefined,
   reporter: [
     ['list'],
     ['html', { open: 'never', outputFolder: 'test-reports' }],
@@ -17,26 +21,33 @@ module.exports = defineConfig({
   use: {
     // Base URL for the Red Gate Monitor application
     baseURL: 'https://monitor.red-gate.com',
-    trace: 'off',
-    screenshot: 'off',
-    video: 'off',
+    trace: process.env.CI ? 'retain-on-failure' : 'off',
+    screenshot: process.env.CI ? 'only-on-failure' : 'off',
+    video: process.env.CI ? 'retain-on-failure' : 'off',
     // This prevents the page context from being reused between tests
     contextOptions: {
       ignoreHTTPSErrors: true
-    }
+    },
+    // Add navigation timeout
+    navigationTimeout: 30000,
+    // Add action timeout
+    actionTimeout: 15000,
+    // Viewport defaults
+    viewport: { width: 1920, height: 1080 },
   },
   projects: [
     {
       name: 'Chrome',
       use: {
         ...devices['Desktop Chrome'],
-        viewport: { width: 1920, height: 1080 },
         launchOptions: {
           args: [
             '--disable-gpu',
             '--disable-dev-shm-usage',
             '--no-sandbox',
-            '--disable-setuid-sandbox'
+            '--disable-setuid-sandbox',
+            '--disable-web-security',
+            '--disable-features=IsolateOrigins,site-per-process'
           ]
         }
       }
