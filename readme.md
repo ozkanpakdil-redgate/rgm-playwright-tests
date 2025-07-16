@@ -48,10 +48,3 @@ npx playwright show-report
 - `tests/` - Contains all Playwright test files.
 - `playwright.config.ts` - Playwright configuration.
 
-## Contributing
-
-Feel free to open issues or submit pull requests to improve the test suite.
-
-## License
-
-See [LICENSE](LICENSE) for details.
