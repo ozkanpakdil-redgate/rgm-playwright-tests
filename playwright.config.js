@@ -16,6 +16,7 @@ module.exports = defineConfig({
   reporter: [
     ['list'],
     ['html', { open: 'never', outputFolder: 'test-reports' }],
+    ['json', { outputFile: 'test-reports/test-results.json' }],
     ['./utils/performance-test-reporter.js'],
   ],
   use: {
