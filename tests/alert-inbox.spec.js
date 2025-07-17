@@ -138,7 +138,7 @@ test.describe('Public Alert Inbox Tests', () => {
     
     // Select a different time range and verify value
     await timeRangeCombobox.selectOption({ label: '1 day' });
-    await expect(timeRangeCombobox).toHaveValue('1 day');
+    await expect(timeRangeCombobox).toHaveValue('1440');
     // Wait for data load
     await page.waitForLoadState('networkidle');
 
