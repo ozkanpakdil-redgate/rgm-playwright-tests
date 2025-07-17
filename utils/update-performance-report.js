@@ -14,10 +14,11 @@ try {
         const basicSummary = {
             passed: 0,
             failed: 0,
-            total: 0
+            total: 0,
+            duration: 0
         };
         
-        performanceReporter.updateTestSummary(basicSummary);
+        performanceReporter.updateTestResults(basicSummary);
         performanceReporter.saveReport();
         console.log('Basic performance report generated successfully');
         return;
@@ -29,7 +30,8 @@ try {
     const testSummary = {
         passed: 0,
         failed: 0,
-        total: 0
+        total: 0,
+        duration: 0
     };
 
     // Handle different JSON structures from Playwright
@@ -49,7 +51,7 @@ try {
                 testSummary.passed++;
             } else {
                 testSummary.failed++;
-                performanceReporter.addFailedTest(
+                performanceReporter.addFailure(
                     spec.title || spec.name || 'Unknown test',
                     spec.error?.message || spec.errors?.[0]?.message || 'Test failed'
                 );
@@ -67,13 +69,23 @@ try {
                             if (line.includes('page loaded in')) {
                                 const matches = line.match(/(\w+) page loaded in (\d+)ms/);
                                 if (matches) {
-                                    performanceReporter.recordPageTime(matches[1], parseInt(matches[2]));
+                                    performanceReporter.addPageTime(matches[1], parseInt(matches[2]));
                                 }
                             }
                             if (line.includes('SLOW PERFORMANCE:')) {
                                 const matches = line.match(/SLOW PERFORMANCE: (\w+) took (\d+)ms/);
                                 if (matches) {
-                                    performanceReporter.recordCriticalOperation(matches[1], parseInt(matches[2]));
+                                    performanceReporter.addCriticalOperation(matches[1], parseInt(matches[2]));
+                                }
+                            }
+                            if (line.includes('⚠️  SLOW PERFORMANCE:')) {
+                                const matches = line.match(/⚠️  SLOW PERFORMANCE: (\w+) took (\d+)ms \(threshold: (\d+)ms\)/);
+                                if (matches) {
+                                    const operation = matches[1];
+                                    const duration = parseInt(matches[2]);
+                                    const threshold = parseInt(matches[3]);
+                                    performanceReporter.addCriticalOperation(operation, duration);
+                                    performanceReporter.addAlert('Timeout Alerts', `${operation} took ${duration}ms (threshold: ${threshold}ms)`);
                                 }
                             }
                         });
@@ -83,7 +95,12 @@ try {
         });
     });
 
-    performanceReporter.updateTestSummary(testSummary);
+    // Calculate total duration if available
+    if (results.config && results.config.metadata && results.config.metadata.totalTime) {
+        testSummary.duration = results.config.metadata.totalTime;
+    }
+
+    performanceReporter.updateTestResults(testSummary);
     performanceReporter.saveReport();
     
     console.log('Performance report updated successfully');
@@ -98,9 +115,10 @@ try {
         const fallbackSummary = {
             passed: 0,
             failed: 0,
-            total: 0
+            total: 0,
+            duration: 0
         };
-        performanceReporter.updateTestSummary(fallbackSummary);
+        performanceReporter.updateTestResults(fallbackSummary);
         performanceReporter.saveReport();
         console.log('Fallback performance report generated');
     } catch (fallbackError) {
