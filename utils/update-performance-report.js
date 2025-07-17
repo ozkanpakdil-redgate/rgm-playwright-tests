@@ -2,6 +2,25 @@ const fs = require('fs');
 const path = require('path');
 const performanceReporter = require('./performance-reporter');
 
+// Function to parse performance data from console output or log files
+function parsePerformanceFromLogs() {
+    try {
+        // Try to read from test output or console logs
+        const possibleLogPaths = [
+            path.join(process.cwd(), 'test-reports', 'test-output.log'),
+            path.join(process.cwd(), 'playwright-report', 'index.html'),
+            path.join(process.cwd(), 'test-results')
+        ];
+        
+        // For now, just return empty - we'll rely on the performance-test-reporter.js
+        // to collect metrics during test execution
+        return {};
+    } catch (error) {
+        console.log('No additional log data found');
+        return {};
+    }
+}
+
 // Read the test results from Playwright's output
 try {
     const testResultsPath = path.join(process.cwd(), 'test-reports', 'test-results.json');
@@ -9,6 +28,9 @@ try {
     // Check if test results file exists
     if (!fs.existsSync(testResultsPath)) {
         console.log('No test-results.json found, generating basic report...');
+        
+        // Try to parse any performance data from logs
+        parsePerformanceFromLogs();
         
         // Generate a basic report without detailed test results
         const basicSummary = {
