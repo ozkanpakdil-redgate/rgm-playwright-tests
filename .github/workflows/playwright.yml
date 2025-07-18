@@ -50,8 +50,15 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add performance.md
-        git diff --quiet && git diff --staged --quiet || git commit -m "Update performance report [skip ci]"
-        git push
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          # Pull latest changes to avoid conflicts
+          git pull --rebase origin main || true
+          git commit -m "Update performance report [skip ci]"
+          # Try to push, if it fails, pull and try again
+          git push || (git pull --rebase origin main && git push)
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
