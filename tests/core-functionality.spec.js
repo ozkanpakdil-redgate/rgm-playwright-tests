@@ -50,8 +50,8 @@ test.describe('Public UI Functionality Tests', () => {
       await expect(mainNav.getByRole('link', { name: link })).toBeVisible();
     }
     
-    // Configuration link should be present
-    await expect(page.getByRole('link', { name: 'Configuration' })).toBeVisible();
+    // Configuration link should be present - look for it with href attribute to be more specific
+    await expect(page.locator('a[href="/Configuration"]').first()).toBeVisible();
   });
 
   test('should test analysis page functionality', async ({ page }) => {
