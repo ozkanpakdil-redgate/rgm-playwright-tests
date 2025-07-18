@@ -60,7 +60,7 @@ jobs:
           echo "tests-total=$TOTAL" >> $GITHUB_OUTPUT
           echo "duration=$DURATION" >> $GITHUB_OUTPUT
           
-          # Calculate success rate
+          # Calculate success rate (handle division safely)
           if [ $TOTAL -gt 0 ]; then
             SUCCESS_RATE=$((PASSED * 100 / TOTAL))
             echo "success-rate=$SUCCESS_RATE" >> $GITHUB_OUTPUT
@@ -82,7 +82,9 @@ jobs:
           FAILED=$(jq -r '.stats.unexpected // 0' test-reports/test-results.json)
           TOTAL=$((PASSED + FAILED))
           DURATION=$(jq -r '.stats.duration // 0' test-reports/test-results.json)
-          DURATION_SEC=$((DURATION / 1000))
+          # Convert duration to integer seconds (handle decimal values by truncating)
+          DURATION_SEC=${DURATION%.*}
+          DURATION_SEC=$((DURATION_SEC / 1000))
           
           echo "## 📊 Test Summary" >> $GITHUB_STEP_SUMMARY
           echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
