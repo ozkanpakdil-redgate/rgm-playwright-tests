@@ -1,10 +1,10 @@
-name: Playwright Tests with Performance Report
+name: Playwright Tests with Performance Reporting
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
   schedule:
     - cron: '0 0 * * *'  # Run daily at midnight UTC
   workflow_dispatch:  # Manual trigger
@@ -121,6 +121,27 @@ jobs:
           echo "❌ No test results found" >> $GITHUB_STEP_SUMMARY
         fi
 
+    - name: Display summary reports
+      if: always()
+      run: |
+        echo "### 📋 Available performance summary reports"
+        if [ -d performance-reports ]; then
+          echo "Found performance-reports directory with the following files:"
+          ls -la performance-reports/ | head -20
+          echo ""
+          echo "### 📄 Latest report samples:"
+          for file in performance-reports/*.txt; do
+            if [ -f "$file" ]; then
+              echo "**$(basename $file)**"
+              head -n 10 "$file" 2>/dev/null || true
+              echo "..."
+              echo ""
+            fi
+          done | head -50
+        else
+          echo "No performance-reports directory found"
+        fi
+
     - name: Generate performance badge
       if: always()
       run: |
@@ -190,21 +211,34 @@ jobs:
             console.log('Could not post PR comment:', error.message);
           }
 
-    - name: Commit performance report
+    - name: Commit performance reports
+      if: always()
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add performance.md
+        
+        # Add all performance-related files
+        git add performance.md || true
         git add performance-reports/trends.json || true
         git add performance-reports/trend-report.md || true
+        
         if git diff --quiet && git diff --staged --quiet; then
           echo "No changes to commit"
         else
+          echo "Changes detected, committing performance reports..."
+          
           # Pull latest changes to avoid conflicts
-          git pull --rebase origin main || true
-          git commit -m "Update performance reports [skip ci]"
+          git pull --rebase origin main || git pull --rebase origin master || true
+          
+          # Commit with simple message
+          git commit -m "Update performance reports [skip ci] - $(date)"
+          
           # Try to push, if it fails, pull and try again
-          git push || (git pull --rebase origin main && git push)
+          if ! git push; then
+            echo "Push failed, attempting to resolve conflicts..."
+            git pull --rebase origin main || git pull --rebase origin master || true
+            git push
+          fi
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

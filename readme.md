@@ -1,6 +1,10 @@
 # RGM Playwright Tests
 
-This repository contains automated end-to-end tests for the RGM application using [Playwright](https://playwright.dev/).
+[![Playwright Tests](https://github.com/[username]/rgm-playwright-tests/actions/workflows/playwright.yml/badge.svg)](https://github.com/[username]/rgm-playwright-tests/actions/workflows/playwright.yml)
+
+## 🚀 Unified Test Workflow
+
+This repository now uses a **single, comprehensive GitHub Actions workflow** that handles all testing scenarios and performance reporting.
 
 ## Purpose
 
@@ -42,6 +46,52 @@ After running tests, view the HTML report:
 ```bash
 npx playwright show-report
 ```
+
+## 🎭 GitHub Actions Workflow
+
+### Triggers
+
+- **Push**: Runs on pushes to `main` or `master` branches
+- **Pull Request**: Runs on PRs to `main` or `master` branches
+- **Scheduled**: Daily at midnight UTC (00:00)
+- **Manual**: Can be triggered manually via workflow dispatch
+
+### Features
+
+- ✅ Multi-browser test execution (Chrome, Firefox, Safari, Mobile)
+- 📈 Performance metrics collection and analysis
+- 🎯 GitHub Actions summary with detailed results
+- 📄 Multiple report formats (Markdown, HTML, JSON)
+- 📊 Historical trend analysis and regression detection
+- 🏷️ Dynamic status badges
+- 💬 Automated PR comments with test results
+- 📦 Comprehensive artifact uploads
+- 🔄 Automatic report commits to repository
+
+### Generated Artifacts
+
+Each workflow run produces:
+
+- **test-results** (30 days) - Raw test outputs and JSON results
+- **performance-reports** (30 days) - Complete performance bundle
+- **html-performance-report** (30 days) - Interactive HTML dashboard
+- **performance-trends** (90 days) - Historical trend data
+- **screenshots** (7 days) - Failure screenshots
+
+### Performance Monitoring
+
+- Real-time performance metrics tracking
+- Page load time analysis
+- Navigation performance monitoring
+- Automated performance regression detection
+- Historical trend visualization
+
+### Reports Access
+
+- **In Repository**: `performance.md` (always current)
+- **In Actions**: Detailed summary in each workflow run
+- **As Artifacts**: Download comprehensive reports
+- **In PRs**: Automatic performance comments
 
 ## Project Structure
 
