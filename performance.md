@@ -1,9 +1,9 @@
 # Performance Test Report
 
 ## Test Run Summary
-- Total Duration: 453087.59ms
-- Tests Passed: 107
-- Tests Failed: 13
+- Total Duration: 1288748.773ms
+- Tests Passed: 120
+- Tests Failed: 0
 - Total Tests: 120
 
 ## Page Load Times
