@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const performanceReporter = require('./performance-reporter');
 
 class PerformanceMonitor {
   constructor(testName) {
@@ -54,8 +55,18 @@ class PerformanceMonitor {
 
     this.metrics.push(metric);
     
+    // Send metrics to performance reporter
+    if (category === 'pageLoad') {
+      performanceReporter.addPageTime(actionName, duration);
+    } else if (category === 'userAction') {
+      performanceReporter.addNavigationTime(actionName, duration);
+    } else if (category === 'apiCall') {
+      performanceReporter.addCriticalOperation(actionName, duration);
+    }
+    
     if (metric.isSlowPerformance) {
       console.warn(`⚠️  SLOW PERFORMANCE: ${actionName} took ${duration}ms (threshold: ${this.thresholds[category]}ms)`);
+      performanceReporter.addAlert('Performance', `${actionName} took ${duration}ms (threshold: ${this.thresholds[category]}ms)`);
     } else {
       console.log(`✅ ${actionName} completed in ${duration}ms`);
     }
@@ -85,6 +96,14 @@ class PerformanceMonitor {
     };
 
     this.metrics.push(metric);
+    
+    // Send to performance reporter
+    performanceReporter.addPageTime(pageName, navigationTiming.loadTime);
+    
+    if (metric.isSlowPerformance) {
+      performanceReporter.addAlert('Page Load', `${pageName} took ${navigationTiming.loadTime}ms (threshold: ${this.thresholds.pageLoad}ms)`);
+    }
+    
     return metric;
   }
 
@@ -103,6 +122,14 @@ class PerformanceMonitor {
     };
 
     this.metrics.push(metric);
+    
+    // Send to performance reporter
+    performanceReporter.addCriticalOperation(apiName, duration);
+    
+    if (metric.isSlowPerformance) {
+      performanceReporter.addAlert('API Call', `${apiName} took ${duration}ms (threshold: ${this.thresholds.apiCall}ms)`);
+    }
+    
     return metric;
   }
 
