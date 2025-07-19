@@ -233,7 +233,7 @@ jobs:
             echo "| 📊 **Performance Data** | [📈 Metrics](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/performance-metrics/) | Detailed performance JSON files |" >> $GITHUB_STEP_SUMMARY
             echo "| 📁 **Download All** | [💾 Artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts) | Download raw files |" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "💡 **Tip**: Start with the Live Dashboard for easy navigation to all reports and data!" >> $GITHUB_STEP_SUMMARY
+            echo "💡 **Note**: Live links require GitHub Pages to be enabled at [Settings → Pages](https://github.com/${{ github.repository }}/settings/pages)" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
           fi
           
@@ -967,16 +967,37 @@ jobs:
     - name: Setup Pages
       if: github.ref == 'refs/heads/main' && always()
       uses: actions/configure-pages@v4
+      continue-on-error: true
+      id: pages-setup
 
     - name: Upload Pages artifact
-      if: github.ref == 'refs/heads/main' && always()
+      if: github.ref == 'refs/heads/main' && always() && steps.pages-setup.outcome == 'success'
       uses: actions/upload-pages-artifact@v3
       with:
         path: playwright-report/
+      continue-on-error: true
+      id: pages-upload
 
     - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main' && always()
+      if: github.ref == 'refs/heads/main' && always() && steps.pages-upload.outcome == 'success'
       uses: actions/deploy-pages@v4
       id: deployment
       with:
         artifact_name: github-pages
+      continue-on-error: true
+
+    - name: Pages deployment status
+      if: github.ref == 'refs/heads/main' && always()
+      run: |
+        if [ "${{ steps.deployment.outcome }}" == "success" ]; then
+          echo "✅ GitHub Pages deployment successful!"
+          echo "🌐 Live report available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/"
+        else
+          echo "⚠️ GitHub Pages deployment failed or skipped"
+          echo "💡 To enable GitHub Pages:"
+          echo "   1. Go to: https://github.com/${{ github.repository }}/settings/pages"
+          echo "   2. Set Source to 'GitHub Actions'"
+          echo "   3. Save settings"
+          echo ""
+          echo "📊 Alternative: All reports are still available as artifacts!"
+        fi
