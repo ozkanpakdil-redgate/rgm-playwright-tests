@@ -33,7 +33,8 @@ Your workflow now captures and provides clickable access to **ALL** the director
 
 ## 🌐 **Live Online Access (GitHub Pages)**
 
-### **Main Dashboard**: `https://YOUR_USERNAME.github.io/YOUR_REPO/playwright-report/`
+### **Main Dashboard**: `https://YOUR_USERNAME.github.io/YOUR_REPO/`
+
 When you visit this URL, you'll see a beautiful dashboard with cards for:
 
 | 🎭 **Main Test Report** | 📸 **Screenshots** | 🧪 **Test Artifacts** | 📊 **Performance Metrics** |
@@ -41,11 +42,12 @@ When you visit this URL, you'll see a beautiful dashboard with cards for:
 | Interactive Playwright report | Visual evidence from failures | Detailed execution traces | JSON performance data |
 | ✅ Click to view | ✅ Click to browse | ✅ Click to explore | ✅ Click to download |
 
-### **Direct Links Available**:
-- 🎭 **Main Report**: `/playwright-report/test-results.html`
-- 📸 **Screenshots**: `/playwright-report/screenshots/`
-- 🧪 **Test Artifacts**: `/playwright-report/test-artifacts/`
-- 📊 **Performance Metrics**: `/playwright-report/performance-metrics/`
+### **Direct Links Available**
+
+- 🎭 **Main Report**: `/test-results.html`
+- 📸 **Screenshots**: `/screenshots/`
+- 🧪 **Test Artifacts**: `/test-artifacts/`
+- 📊 **Performance Metrics**: `/performance-metrics/`
 
 ## 📊 **GitHub Actions Summary**
 
@@ -92,7 +94,7 @@ The "Display comprehensive reports" step now shows:
 ## 🎯 **How to Access Everything**
 
 ### **🏆 Best Experience: Live Dashboard**
-1. Go to: `https://YOUR_USERNAME.github.io/YOUR_REPO/playwright-report/`
+1. Go to: `https://YOUR_USERNAME.github.io/YOUR_REPO/`
 2. Click on any card to explore that type of data
 3. Navigate seamlessly between reports, screenshots, and metrics
 

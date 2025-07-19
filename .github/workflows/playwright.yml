@@ -226,11 +226,11 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "| Method | Link | Content |" >> $GITHUB_STEP_SUMMARY
             echo "|--------|------|---------|" >> $GITHUB_STEP_SUMMARY
-            echo "| 🌐 **Live Dashboard** | [📊 Test Dashboard](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/) | Interactive dashboard with navigation |" >> $GITHUB_STEP_SUMMARY
-            echo "| 🎭 **Main Report** | [📋 Playwright Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/test-results.html) | Complete Playwright HTML report |" >> $GITHUB_STEP_SUMMARY
-            echo "| 📸 **Screenshots** | [🖼️ Visual Evidence](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/screenshots/) | Test failure screenshots |" >> $GITHUB_STEP_SUMMARY
-            echo "| 🧪 **Test Artifacts** | [📁 Detailed Traces](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/test-artifacts/) | Test execution artifacts |" >> $GITHUB_STEP_SUMMARY
-            echo "| 📊 **Performance Data** | [📈 Metrics](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/performance-metrics/) | Detailed performance JSON files |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🌐 **Live Dashboard** | [📊 Test Dashboard](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/) | Interactive dashboard with navigation |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🎭 **Main Report** | [📋 Playwright Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/test-results.html) | Complete Playwright HTML report |" >> $GITHUB_STEP_SUMMARY
+            echo "| 📸 **Screenshots** | [🖼️ Visual Evidence](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/screenshots/) | Test failure screenshots |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🧪 **Test Artifacts** | [📁 Detailed Traces](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/test-artifacts/) | Test execution artifacts |" >> $GITHUB_STEP_SUMMARY
+            echo "| 📊 **Performance Data** | [📈 Metrics](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/performance-metrics/) | Detailed performance JSON files |" >> $GITHUB_STEP_SUMMARY
             echo "| 📁 **Download All** | [💾 Artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts) | Download raw files |" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "💡 **Note**: Live links require GitHub Pages to be enabled at [Settings → Pages](https://github.com/${{ github.repository }}/settings/pages)" >> $GITHUB_STEP_SUMMARY
@@ -277,7 +277,7 @@ jobs:
           echo "### 🌐 Live Reports" >> $GITHUB_STEP_SUMMARY
           echo "| Report Type | Live Link |" >> $GITHUB_STEP_SUMMARY
           echo "|-------------|-----------|" >> $GITHUB_STEP_SUMMARY
-          echo "| 🎭 **Playwright Report** | [📊 View Live Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/) |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🎭 **Playwright Report** | [📊 View Live Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/) |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           echo "### 📁 Test Results & Reports" >> $GITHUB_STEP_SUMMARY
@@ -327,7 +327,7 @@ jobs:
           echo "| Action | Direct Link |" >> $GITHUB_STEP_SUMMARY
           echo "|--------|-------------|" >> $GITHUB_STEP_SUMMARY
           echo "| 📁 **Download All** | [📥 View All Artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts) |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🌐 **Live Report** | [🎭 Playwright Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/) |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🌐 **Live Report** | [🎭 Playwright Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/) |" >> $GITHUB_STEP_SUMMARY
           echo "| 📊 **This Summary** | [📋 Current Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
@@ -605,7 +605,7 @@ jobs:
         echo ""
         echo "🔗 COMPREHENSIVE ARTIFACT ACCESS:"
         echo "  📁 All artifacts: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts"
-        echo "  🎭 Live Playwright Report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/"
+        echo "  🎭 Live Playwright Report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
         echo "  📊 GitHub Actions Summary: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         echo ""
         echo "📋 AVAILABLE ARTIFACT DOWNLOADS:"
@@ -621,32 +621,6 @@ jobs:
         echo "=============================================="
         echo "    END OF COMPREHENSIVE REPORT"
         echo "=============================================="
-
-    - name: Generate performance badge
-      if: always()
-      run: |
-        # Extract test results for badge
-        if [ -f "test-reports/test-results.json" ]; then
-          PASSED=$(jq -r '.stats.expected // 0' test-reports/test-results.json)
-          FAILED=$(jq -r '.stats.unexpected // 0' test-reports/test-results.json)
-          TOTAL=$((PASSED + FAILED))
-          
-          # Generate badge JSON
-          if [ $FAILED -eq 0 ]; then
-            COLOR="brightgreen"
-            MESSAGE="$PASSED/$TOTAL passing"
-          elif [ $FAILED -lt 5 ]; then
-            COLOR="yellow"
-            MESSAGE="$PASSED/$TOTAL passing"
-          else
-            COLOR="red"
-            MESSAGE="$PASSED/$TOTAL passing"
-          fi
-          
-          # Create badge data
-          echo "{\"schemaVersion\": 1, \"label\": \"tests\", \"message\": \"$MESSAGE\", \"color\": \"$COLOR\"}" > test-reports/badge.json
-          echo "Generated badge: $MESSAGE ($COLOR)"
-        fi
 
     - name: Comment on PR with performance results
       if: github.event_name == 'pull_request'
@@ -925,9 +899,9 @@ jobs:
           fi
           
           echo "✅ Enhanced Playwright dashboard prepared for GitHub Pages"
-          echo "📊 Dashboard will be available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/"
-          echo "🎭 Main report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/test-results.html"
-          echo "📸 Screenshots: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/screenshots/"
+          echo "📊 Dashboard will be available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          echo "🎭 Main report: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/test-results.html"
+          echo "📸 Screenshots: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/screenshots/"
         else
           echo "❌ No Playwright report found to deploy"
         fi
@@ -959,7 +933,7 @@ jobs:
       run: |
         if [ "${{ steps.deployment.outcome }}" == "success" ]; then
           echo "✅ GitHub Pages deployment successful!"
-          echo "🌐 Live report available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/playwright-report/"
+          echo "🌐 Live report available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
         else
           echo "⚠️ GitHub Pages deployment failed or skipped"
           echo "💡 To enable GitHub Pages:"
