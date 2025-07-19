@@ -1,5 +1,24 @@
 # 🎭 Enhanced Playwright Workflow - Complete Report Access
 
+## 🎯 **Clean Artifact-Only Approach**
+
+This workflow uses a **clean, artifact-only approach** for maximum reliability:
+
+✅ **No git operations** - Reports are not pushed back to the repository  
+✅ **GitHub Actions artifacts** - All reports available as downloadable artifacts  
+✅ **Live online access** - Optional GitHub Pages deployment for immediate viewing  
+✅ **Embedded summaries** - Report content directly in GitHub Actions summary  
+✅ **Zero repository pollution** - Your repo stays clean, reports stay accessible  
+
+### 🔑 **Key Benefits**
+
+- **No merge conflicts** from automated commits
+- **Clean git history** without bot-generated report commits
+- **Reliable access** through GitHub's artifact system (30-day retention)
+- **Professional presentation** with embedded summaries and live dashboards
+
+---
+
 ## ✅ **VERIFIED: All Your Directories Are Now Linked and Accessible!**
 
 Your workflow now captures and provides clickable access to **ALL** the directories your tests generate:

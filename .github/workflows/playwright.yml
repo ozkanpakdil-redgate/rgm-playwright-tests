@@ -691,38 +691,6 @@ jobs:
             console.log('Could not post PR comment:', error.message);
           }
 
-    - name: Commit performance reports
-      if: always()
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        
-        # Add all performance-related files
-        git add performance.md || true
-        git add performance-reports/trends.json || true
-        git add performance-reports/trend-report.md || true
-        
-        if git diff --quiet && git diff --staged --quiet; then
-          echo "No changes to commit"
-        else
-          echo "Changes detected, committing performance reports..."
-          
-          # Pull latest changes to avoid conflicts
-          git pull --rebase origin main || git pull --rebase origin master || true
-          
-          # Commit with simple message
-          git commit -m "Update performance reports [skip ci] - $(date)"
-          
-          # Try to push, if it fails, pull and try again
-          if ! git push; then
-            echo "Push failed, attempting to resolve conflicts..."
-            git pull --rebase origin main || git pull --rebase origin master || true
-            git push
-          fi
-        fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4

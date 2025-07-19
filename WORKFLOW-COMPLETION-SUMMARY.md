@@ -112,14 +112,14 @@ The "Display comprehensive reports" step now provides:
 5. **Summary Creation** → Embed all reports in GitHub Actions summary
 6. **Log Display** → Show comprehensive analysis in workflow logs
 7. **PR Comments** → Post performance results on pull requests
-8. **Git Commit** → Save performance reports to repository
-9. **Artifact Upload** → Make all reports available for download
+8. **Artifact Upload** → Make all reports available for download via GitHub Actions artifacts
+9. **GitHub Pages Deploy** → Optional live online access to reports and dashboards
 
 ### **Error Handling**
 - ✅ All steps use `if: always()` to ensure reports are generated even on test failures
 - ✅ Robust JSON parsing with fallback values
 - ✅ Safe arithmetic operations to prevent script failures
-- ✅ Git conflict resolution with pull/rebase strategy
+- ✅ Clean artifact-only approach - no git operations required
 
 ## 📈 **PERFORMANCE MONITORING FEATURES**
 
