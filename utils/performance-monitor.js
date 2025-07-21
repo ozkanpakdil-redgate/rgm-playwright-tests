@@ -33,47 +33,48 @@ class PerformanceMonitor {
 
   startTiming(actionName) {
     this.startTimes.set(actionName, Date.now());
-  }
+  }    async endTiming(actionName, category = 'userAction') {
+        const startTime = this.startTimes.get(actionName);
+        if (!startTime) {
+            console.warn(`No start time found for action: ${actionName}`);
+            return;
+        }
 
-  async endTiming(actionName, category = 'userAction') {
-    const startTime = this.startTimes.get(actionName);
-    if (!startTime) {
-      console.warn(`No start time found for action: ${actionName}`);
-      return;
+        const duration = Date.now() - startTime;
+        const metric = {
+            name: actionName,
+            duration,
+            category,
+            timestamp: new Date().toISOString(),
+            url: this.page?.url() || 'N/A',
+            isSlowPerformance: duration > this.thresholds[category],
+            threshold: this.thresholds[category]
+        };
+
+        this.metrics.push(metric);
+        
+        // Send metrics to performance reporter
+        if (category === 'pageLoad') {
+            performanceReporter.addPageTime(actionName, duration);
+        } else if (category === 'userAction') {
+            performanceReporter.addNavigationTime(actionName, duration);
+        } else {
+            performanceReporter.addCriticalOperation(actionName, duration);
+        }
+        
+        if (metric.isSlowPerformance) {
+            console.warn(`⚠️  SLOW PERFORMANCE: ${actionName} took ${duration}ms (threshold: ${this.thresholds[category]}ms)`);
+            performanceReporter.addAlert('Performance', `${actionName} took ${duration}ms (threshold: ${this.thresholds[category]}ms)`);
+        } else {
+            console.log(`✅ ${actionName} completed in ${duration}ms`);
+        }
+        
+        // Output in a format that can be easily parsed
+        console.log(`Timer completed: ${actionName} = ${duration}ms`);
+
+        this.startTimes.delete(actionName);
+        return metric;
     }
-
-    const duration = Date.now() - startTime;
-    const metric = {
-      name: actionName,
-      duration,
-      category,
-      timestamp: new Date().toISOString(),
-      url: this.page?.url() || 'N/A',
-      isSlowPerformance: duration > this.thresholds[category],
-      threshold: this.thresholds[category]
-    };
-
-    this.metrics.push(metric);
-    
-    // Send metrics to performance reporter
-    if (category === 'pageLoad') {
-      performanceReporter.addPageTime(actionName, duration);
-    } else if (category === 'userAction') {
-      performanceReporter.addNavigationTime(actionName, duration);
-    } else if (category === 'apiCall') {
-      performanceReporter.addCriticalOperation(actionName, duration);
-    }
-    
-    if (metric.isSlowPerformance) {
-      console.warn(`⚠️  SLOW PERFORMANCE: ${actionName} took ${duration}ms (threshold: ${this.thresholds[category]}ms)`);
-      performanceReporter.addAlert('Performance', `${actionName} took ${duration}ms (threshold: ${this.thresholds[category]}ms)`);
-    } else {
-      console.log(`✅ ${actionName} completed in ${duration}ms`);
-    }
-
-    this.startTimes.delete(actionName);
-    return metric;
-  }
 
   async recordPageLoad(pageName) {
     const navigationTiming = await this.page.evaluate(() => {

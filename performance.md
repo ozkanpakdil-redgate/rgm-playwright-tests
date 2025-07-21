@@ -1,13 +1,869 @@
 # Performance Test Report
 
 ## Test Run Summary
-- Total Duration: 1241998.2249999999ms
-- Tests Passed: 120
-- Tests Failed: 0
-- Total Tests: 120
+- **Total Duration**: 405743.397ms (405.74s)
+- **Tests Passed**: 118
+- **Tests Failed**: 2
+- **Total Tests**: 120
+- **Success Rate**: 98.3%
+- **Report Generated**: 2025-07-21T09:22:53.365Z
 
 ## Page Load Times
+### page_navigation
+- **Average**: 10332.02ms
+- **Minimum**: 3809.00ms
+- **Maximum**: 22429.00ms
+- **Samples**: 96
+
+### reports_page
+- **Average**: 20882.70ms
+- **Minimum**: 10148.00ms
+- **Maximum**: 42454.00ms
+- **Samples**: 23
+
+### table_load
+- **Average**: 63.46ms
+- **Minimum**: 11.00ms
+- **Maximum**: 319.00ms
+- **Samples**: 24
+
+### estate_page
+- **Average**: 5640.83ms
+- **Minimum**: 2136.00ms
+- **Maximum**: 13937.00ms
+- **Samples**: 24
+
+### Overview_load
+- **Average**: 15891.25ms
+- **Minimum**: 12908.00ms
+- **Maximum**: 25222.00ms
+- **Samples**: 24
+
+### Alerts_load
+- **Average**: 15871.00ms
+- **Minimum**: 13024.00ms
+- **Maximum**: 20810.00ms
+- **Samples**: 24
+
+### Analysis_load
+- **Average**: 21138.63ms
+- **Minimum**: 14487.00ms
+- **Maximum**: 29249.00ms
+- **Samples**: 24
+
+### Reports_load
+- **Average**: 20435.38ms
+- **Minimum**: 14281.00ms
+- **Maximum**: 27474.00ms
+- **Samples**: 24
+
+### Estate_load
+- **Average**: 12020.83ms
+- **Minimum**: 11434.00ms
+- **Maximum**: 14245.00ms
+- **Samples**: 24
 
 ## Navigation Times
+### alert_inbox_validation
+- **Average**: 1086.21ms
+- **Minimum**: 150.00ms
+- **Maximum**: 6784.00ms
+- **Samples**: 24
+
+### alert_controls_test
+- **Average**: 606.96ms
+- **Minimum**: 103.00ms
+- **Maximum**: 2508.00ms
+- **Samples**: 24
+
+### action_links_test
+- **Average**: 369.79ms
+- **Minimum**: 100.00ms
+- **Maximum**: 900.00ms
+- **Samples**: 24
+
+### time_range_test
+- **Average**: 955.29ms
+- **Minimum**: 120.00ms
+- **Maximum**: 3854.00ms
+- **Samples**: 24
+
+### time_range_interaction
+- **Average**: 366.54ms
+- **Minimum**: 120.00ms
+- **Maximum**: 928.00ms
+- **Samples**: 24
+
+### metric_selection
+- **Average**: 246.29ms
+- **Minimum**: 57.00ms
+- **Maximum**: 1172.00ms
+- **Samples**: 24
+
+### analysis_metrics
+- **Average**: 18967.29ms
+- **Minimum**: 7388.00ms
+- **Maximum**: 33154.00ms
+- **Samples**: 24
+
+### report_controls
+- **Average**: 306.30ms
+- **Minimum**: 85.00ms
+- **Maximum**: 686.00ms
+- **Samples**: 23
+
+### tile_controls
+- **Average**: 1246.78ms
+- **Minimum**: 1090.00ms
+- **Maximum**: 1707.00ms
+- **Samples**: 23
+
+### filter_controls
+- **Average**: 219.38ms
+- **Minimum**: 42.00ms
+- **Maximum**: 832.00ms
+- **Samples**: 24
+
+### nav_overview
+- **Average**: 24774.50ms
+- **Minimum**: 2351.00ms
+- **Maximum**: 71570.00ms
+- **Samples**: 24
+
+### nav_alerts
+- **Average**: 7147.17ms
+- **Minimum**: 2908.00ms
+- **Maximum**: 15313.00ms
+- **Samples**: 24
+
+### nav_analysis
+- **Average**: 18044.71ms
+- **Minimum**: 5927.00ms
+- **Maximum**: 42060.00ms
+- **Samples**: 24
+
+### nav_reports
+- **Average**: 11855.00ms
+- **Minimum**: 762.00ms
+- **Maximum**: 64212.00ms
+- **Samples**: 24
+
+### nav_estate
+- **Average**: 62173.46ms
+- **Minimum**: 61467.00ms
+- **Maximum**: 64039.00ms
+- **Samples**: 24
+
+### util_settings
+- **Average**: 5010.42ms
+- **Minimum**: 5004.00ms
+- **Maximum**: 5021.00ms
+- **Samples**: 24
+
+### util_feedback
+- **Average**: 5010.21ms
+- **Minimum**: 5002.00ms
+- **Maximum**: 5018.00ms
+- **Samples**: 24
+
+### util_help
+- **Average**: 5009.17ms
+- **Minimum**: 5001.00ms
+- **Maximum**: 5017.00ms
+- **Samples**: 24
+
+### util_whatsnew
+- **Average**: 5009.38ms
+- **Minimum**: 5001.00ms
+- **Maximum**: 5020.00ms
+- **Samples**: 24
+
+### filters_alerts/inbox
+- **Average**: 23678.00ms
+- **Minimum**: 22817.00ms
+- **Maximum**: 26495.00ms
+- **Samples**: 24
+
+### filters_analysis
+- **Average**: 16078.29ms
+- **Minimum**: 14391.00ms
+- **Maximum**: 18493.00ms
+- **Samples**: 24
+
+### empty_globaldashboard
+- **Average**: 7066.79ms
+- **Minimum**: 6537.00ms
+- **Maximum**: 9572.00ms
+- **Samples**: 24
+
+### empty_analysis
+- **Average**: 10515.96ms
+- **Minimum**: 9322.00ms
+- **Maximum**: 13723.00ms
+- **Samples**: 24
+
+### empty_reports
+- **Average**: 10585.21ms
+- **Minimum**: 9166.00ms
+- **Maximum**: 13963.00ms
+- **Samples**: 24
+
+### empty_estate
+- **Average**: 1863.29ms
+- **Minimum**: 1486.00ms
+- **Maximum**: 2787.00ms
+- **Samples**: 24
+
+### empty_states_test
+- **Average**: 30031.67ms
+- **Minimum**: 27855.00ms
+- **Maximum**: 35154.00ms
+- **Samples**: 24
 
 ## Critical Operations
+*No critical operation data captured in this run.*
+
+## Performance Alerts
+*639 performance alert(s) detected*
+
+### Performance Warning
+- page_navigation took 10642ms (threshold: 3000ms)
+- page_navigation took 12541ms (threshold: 3000ms)
+- page_navigation took 9662ms (threshold: 3000ms)
+- page_navigation took 19798ms (threshold: 3000ms)
+- page_navigation took 7760ms (threshold: 3000ms)
+- page_navigation took 11908ms (threshold: 3000ms)
+- page_navigation took 10325ms (threshold: 3000ms)
+- page_navigation took 22429ms (threshold: 3000ms)
+- page_navigation took 16246ms (threshold: 3000ms)
+- page_navigation took 12996ms (threshold: 3000ms)
+- page_navigation took 13368ms (threshold: 3000ms)
+- page_navigation took 15684ms (threshold: 3000ms)
+- page_navigation took 21037ms (threshold: 3000ms)
+- page_navigation took 7746ms (threshold: 3000ms)
+- page_navigation took 4981ms (threshold: 3000ms)
+- page_navigation took 6101ms (threshold: 3000ms)
+- page_navigation took 4241ms (threshold: 3000ms)
+- page_navigation took 6597ms (threshold: 3000ms)
+- page_navigation took 7575ms (threshold: 3000ms)
+- page_navigation took 4212ms (threshold: 3000ms)
+- page_navigation took 9174ms (threshold: 3000ms)
+- page_navigation took 5284ms (threshold: 3000ms)
+- page_navigation took 4596ms (threshold: 3000ms)
+- page_navigation took 7579ms (threshold: 3000ms)
+- page_navigation took 19105ms (threshold: 3000ms)
+- page_navigation took 10820ms (threshold: 3000ms)
+- page_navigation took 8487ms (threshold: 3000ms)
+- page_navigation took 10585ms (threshold: 3000ms)
+- page_navigation took 8581ms (threshold: 3000ms)
+- page_navigation took 11431ms (threshold: 3000ms)
+- page_navigation took 10960ms (threshold: 3000ms)
+- page_navigation took 12495ms (threshold: 3000ms)
+- time_range_test took 3854ms (threshold: 3000ms)
+- page_navigation took 17174ms (threshold: 3000ms)
+- page_navigation took 11499ms (threshold: 3000ms)
+- page_navigation took 9083ms (threshold: 3000ms)
+- page_navigation took 12120ms (threshold: 3000ms)
+- page_navigation took 7746ms (threshold: 3000ms)
+- page_navigation took 11796ms (threshold: 3000ms)
+- page_navigation took 8765ms (threshold: 3000ms)
+- page_navigation took 8916ms (threshold: 3000ms)
+- page_navigation took 6701ms (threshold: 3000ms)
+- page_navigation took 10561ms (threshold: 3000ms)
+- page_navigation took 8445ms (threshold: 3000ms)
+- page_navigation took 4912ms (threshold: 3000ms)
+- page_navigation took 6026ms (threshold: 3000ms)
+- page_navigation took 8999ms (threshold: 3000ms)
+- page_navigation took 15446ms (threshold: 3000ms)
+- page_navigation took 10608ms (threshold: 3000ms)
+- page_navigation took 14113ms (threshold: 3000ms)
+- page_navigation took 10034ms (threshold: 3000ms)
+- page_navigation took 13688ms (threshold: 3000ms)
+- page_navigation took 11780ms (threshold: 3000ms)
+- page_navigation took 8045ms (threshold: 3000ms)
+- alert_inbox_validation took 6784ms (threshold: 3000ms)
+- page_navigation took 10425ms (threshold: 3000ms)
+- page_navigation took 11314ms (threshold: 3000ms)
+- page_navigation took 10003ms (threshold: 3000ms)
+- time_range_test took 3837ms (threshold: 3000ms)
+- page_navigation took 13321ms (threshold: 3000ms)
+- page_navigation took 11450ms (threshold: 3000ms)
+- page_navigation took 14436ms (threshold: 3000ms)
+- page_navigation took 11946ms (threshold: 3000ms)
+- page_navigation took 11399ms (threshold: 3000ms)
+- page_navigation took 8034ms (threshold: 3000ms)
+- page_navigation took 10676ms (threshold: 3000ms)
+- page_navigation took 5598ms (threshold: 3000ms)
+- page_navigation took 14347ms (threshold: 3000ms)
+- page_navigation took 3809ms (threshold: 3000ms)
+- page_navigation took 7647ms (threshold: 3000ms)
+- page_navigation took 4951ms (threshold: 3000ms)
+- page_navigation took 7994ms (threshold: 3000ms)
+- page_navigation took 5998ms (threshold: 3000ms)
+- page_navigation took 6179ms (threshold: 3000ms)
+- page_navigation took 13305ms (threshold: 3000ms)
+- page_navigation took 5904ms (threshold: 3000ms)
+- page_navigation took 18063ms (threshold: 3000ms)
+- page_navigation took 10967ms (threshold: 3000ms)
+- page_navigation took 12842ms (threshold: 3000ms)
+- page_navigation took 22258ms (threshold: 3000ms)
+- page_navigation took 11412ms (threshold: 3000ms)
+- page_navigation took 12029ms (threshold: 3000ms)
+- page_navigation took 8208ms (threshold: 3000ms)
+- page_navigation took 10675ms (threshold: 3000ms)
+- alert_inbox_validation took 3001ms (threshold: 3000ms)
+- page_navigation took 13668ms (threshold: 3000ms)
+- page_navigation took 21958ms (threshold: 3000ms)
+- page_navigation took 5125ms (threshold: 3000ms)
+- page_navigation took 16212ms (threshold: 3000ms)
+- page_navigation took 11354ms (threshold: 3000ms)
+- page_navigation took 5389ms (threshold: 3000ms)
+- page_navigation took 7256ms (threshold: 3000ms)
+- page_navigation took 6735ms (threshold: 3000ms)
+- page_navigation took 4590ms (threshold: 3000ms)
+- page_navigation took 7415ms (threshold: 3000ms)
+- page_navigation took 5422ms (threshold: 3000ms)
+- page_navigation took 4107ms (threshold: 3000ms)
+- page_navigation took 6414ms (threshold: 3000ms)
+- page_navigation took 11148ms (threshold: 3000ms)
+- page_navigation took 8488ms (threshold: 3000ms)
+- analysis_metrics took 20803ms (threshold: 2000ms)
+- analysis_metrics took 14006ms (threshold: 2000ms)
+- reports_page took 18196ms (threshold: 2000ms)
+- estate_page took 10663ms (threshold: 2000ms)
+- Overview_load took 25222ms (threshold: 2000ms)
+- Alerts_load took 14930ms (threshold: 2000ms)
+- Analysis_load took 16937ms (threshold: 2000ms)
+- Reports_load took 17775ms (threshold: 2000ms)
+- Estate_load took 11860ms (threshold: 2000ms)
+- analysis_metrics took 23582ms (threshold: 2000ms)
+- reports_page took 37910ms (threshold: 2000ms)
+- estate_page took 4079ms (threshold: 2000ms)
+- Overview_load took 13160ms (threshold: 2000ms)
+- Alerts_load took 14344ms (threshold: 2000ms)
+- Analysis_load took 16754ms (threshold: 2000ms)
+- Reports_load took 24005ms (threshold: 2000ms)
+- Estate_load took 11876ms (threshold: 2000ms)
+- estate_page took 3091ms (threshold: 2000ms)
+- Overview_load took 12946ms (threshold: 2000ms)
+- Alerts_load took 13965ms (threshold: 2000ms)
+- Analysis_load took 15818ms (threshold: 2000ms)
+- Reports_load took 23864ms (threshold: 2000ms)
+- Estate_load took 11800ms (threshold: 2000ms)
+- analysis_metrics took 10104ms (threshold: 2000ms)
+- reports_page took 17052ms (threshold: 2000ms)
+- estate_page took 2307ms (threshold: 2000ms)
+- Overview_load took 18044ms (threshold: 2000ms)
+- Alerts_load took 14671ms (threshold: 2000ms)
+- Analysis_load took 14487ms (threshold: 2000ms)
+- Reports_load took 15207ms (threshold: 2000ms)
+- Estate_load took 11478ms (threshold: 2000ms)
+- analysis_metrics took 10019ms (threshold: 2000ms)
+- reports_page took 13695ms (threshold: 2000ms)
+- estate_page took 2136ms (threshold: 2000ms)
+- Overview_load took 12908ms (threshold: 2000ms)
+- Alerts_load took 14863ms (threshold: 2000ms)
+- Analysis_load took 14821ms (threshold: 2000ms)
+- Reports_load took 14783ms (threshold: 2000ms)
+- Estate_load took 11434ms (threshold: 2000ms)
+- analysis_metrics took 10044ms (threshold: 2000ms)
+- reports_page took 13425ms (threshold: 2000ms)
+- estate_page took 4064ms (threshold: 2000ms)
+- Overview_load took 13882ms (threshold: 2000ms)
+- Alerts_load took 13024ms (threshold: 2000ms)
+- Analysis_load took 14517ms (threshold: 2000ms)
+- Reports_load took 16666ms (threshold: 2000ms)
+- Estate_load took 11533ms (threshold: 2000ms)
+- analysis_metrics took 15191ms (threshold: 2000ms)
+- reports_page took 24190ms (threshold: 2000ms)
+- estate_page took 6657ms (threshold: 2000ms)
+- Overview_load took 17090ms (threshold: 2000ms)
+- Alerts_load took 17061ms (threshold: 2000ms)
+- Analysis_load took 26765ms (threshold: 2000ms)
+- Reports_load took 26705ms (threshold: 2000ms)
+- Estate_load took 12276ms (threshold: 2000ms)
+- analysis_metrics took 23217ms (threshold: 2000ms)
+- reports_page took 19028ms (threshold: 2000ms)
+- estate_page took 6596ms (threshold: 2000ms)
+- Overview_load took 17081ms (threshold: 2000ms)
+- Alerts_load took 19469ms (threshold: 2000ms)
+- Analysis_load took 26131ms (threshold: 2000ms)
+- Reports_load took 26283ms (threshold: 2000ms)
+- Estate_load took 12266ms (threshold: 2000ms)
+- analysis_metrics took 32019ms (threshold: 2000ms)
+- reports_page took 21225ms (threshold: 2000ms)
+- estate_page took 7558ms (threshold: 2000ms)
+- Overview_load took 14188ms (threshold: 2000ms)
+- Alerts_load took 17420ms (threshold: 2000ms)
+- Analysis_load took 26451ms (threshold: 2000ms)
+- Reports_load took 23132ms (threshold: 2000ms)
+- Estate_load took 12149ms (threshold: 2000ms)
+- analysis_metrics took 28284ms (threshold: 2000ms)
+- reports_page took 14076ms (threshold: 2000ms)
+- estate_page took 3781ms (threshold: 2000ms)
+- Overview_load took 13491ms (threshold: 2000ms)
+- Alerts_load took 17697ms (threshold: 2000ms)
+- Analysis_load took 26130ms (threshold: 2000ms)
+- Reports_load took 14281ms (threshold: 2000ms)
+- Estate_load took 11572ms (threshold: 2000ms)
+- analysis_metrics took 23452ms (threshold: 2000ms)
+- reports_page took 17514ms (threshold: 2000ms)
+- estate_page took 2638ms (threshold: 2000ms)
+- Overview_load took 14718ms (threshold: 2000ms)
+- Alerts_load took 19517ms (threshold: 2000ms)
+- Analysis_load took 16759ms (threshold: 2000ms)
+- Reports_load took 14793ms (threshold: 2000ms)
+- Estate_load took 11581ms (threshold: 2000ms)
+- analysis_metrics took 25650ms (threshold: 2000ms)
+- reports_page took 10148ms (threshold: 2000ms)
+- estate_page took 3088ms (threshold: 2000ms)
+- Overview_load took 13052ms (threshold: 2000ms)
+- Alerts_load took 13760ms (threshold: 2000ms)
+- Analysis_load took 17671ms (threshold: 2000ms)
+- Reports_load took 16438ms (threshold: 2000ms)
+- Estate_load took 11844ms (threshold: 2000ms)
+- analysis_metrics took 18911ms (threshold: 2000ms)
+- reports_page took 20771ms (threshold: 2000ms)
+- estate_page took 6732ms (threshold: 2000ms)
+- Overview_load took 13711ms (threshold: 2000ms)
+- Alerts_load took 17442ms (threshold: 2000ms)
+- Analysis_load took 26172ms (threshold: 2000ms)
+- Reports_load took 26173ms (threshold: 2000ms)
+- Estate_load took 11928ms (threshold: 2000ms)
+- analysis_metrics took 12404ms (threshold: 2000ms)
+- reports_page took 16884ms (threshold: 2000ms)
+- estate_page took 7829ms (threshold: 2000ms)
+- Overview_load took 20275ms (threshold: 2000ms)
+- Alerts_load took 20810ms (threshold: 2000ms)
+- Analysis_load took 26703ms (threshold: 2000ms)
+- Reports_load took 27225ms (threshold: 2000ms)
+- Estate_load took 12055ms (threshold: 2000ms)
+- analysis_metrics took 16386ms (threshold: 2000ms)
+- reports_page took 18909ms (threshold: 2000ms)
+- estate_page took 11468ms (threshold: 2000ms)
+- Overview_load took 16799ms (threshold: 2000ms)
+- Alerts_load took 15764ms (threshold: 2000ms)
+- Analysis_load took 26113ms (threshold: 2000ms)
+- Reports_load took 27039ms (threshold: 2000ms)
+- Estate_load took 11773ms (threshold: 2000ms)
+- analysis_metrics took 20072ms (threshold: 2000ms)
+- reports_page took 14426ms (threshold: 2000ms)
+- estate_page took 3069ms (threshold: 2000ms)
+- Overview_load took 14147ms (threshold: 2000ms)
+- Alerts_load took 17709ms (threshold: 2000ms)
+- Analysis_load took 24120ms (threshold: 2000ms)
+- Reports_load took 19944ms (threshold: 2000ms)
+- Estate_load took 11819ms (threshold: 2000ms)
+- analysis_metrics took 7388ms (threshold: 2000ms)
+- reports_page took 24374ms (threshold: 2000ms)
+- estate_page took 3070ms (threshold: 2000ms)
+- Overview_load took 17303ms (threshold: 2000ms)
+- Alerts_load took 17019ms (threshold: 2000ms)
+- Analysis_load took 26063ms (threshold: 2000ms)
+- Reports_load took 14632ms (threshold: 2000ms)
+- Estate_load took 11547ms (threshold: 2000ms)
+- analysis_metrics took 33154ms (threshold: 2000ms)
+- reports_page took 15283ms (threshold: 2000ms)
+- estate_page took 3089ms (threshold: 2000ms)
+- Overview_load took 13053ms (threshold: 2000ms)
+- Alerts_load took 13258ms (threshold: 2000ms)
+- Analysis_load took 17004ms (threshold: 2000ms)
+- Reports_load took 14495ms (threshold: 2000ms)
+- Estate_load took 11880ms (threshold: 2000ms)
+- analysis_metrics took 17283ms (threshold: 2000ms)
+- reports_page took 41160ms (threshold: 2000ms)
+- estate_page took 7625ms (threshold: 2000ms)
+- Overview_load took 15487ms (threshold: 2000ms)
+- Alerts_load took 16057ms (threshold: 2000ms)
+- Analysis_load took 19008ms (threshold: 2000ms)
+- Reports_load took 27474ms (threshold: 2000ms)
+- Estate_load took 12606ms (threshold: 2000ms)
+- analysis_metrics took 27184ms (threshold: 2000ms)
+- reports_page took 30136ms (threshold: 2000ms)
+- estate_page took 10271ms (threshold: 2000ms)
+- Overview_load took 14789ms (threshold: 2000ms)
+- Alerts_load took 14361ms (threshold: 2000ms)
+- Analysis_load took 24377ms (threshold: 2000ms)
+- Reports_load took 27025ms (threshold: 2000ms)
+- Estate_load took 11964ms (threshold: 2000ms)
+- analysis_metrics took 18047ms (threshold: 2000ms)
+- reports_page took 42454ms (threshold: 2000ms)
+- estate_page took 13937ms (threshold: 2000ms)
+- Overview_load took 19819ms (threshold: 2000ms)
+- Alerts_load took 16506ms (threshold: 2000ms)
+- Analysis_load took 29249ms (threshold: 2000ms)
+- Reports_load took 20375ms (threshold: 2000ms)
+- Estate_load took 13684ms (threshold: 2000ms)
+- analysis_metrics took 16488ms (threshold: 2000ms)
+- reports_page took 16951ms (threshold: 2000ms)
+- estate_page took 5022ms (threshold: 2000ms)
+- Overview_load took 15450ms (threshold: 2000ms)
+- Alerts_load took 13702ms (threshold: 2000ms)
+- Analysis_load took 24189ms (threshold: 2000ms)
+- Reports_load took 17046ms (threshold: 2000ms)
+- Estate_load took 11756ms (threshold: 2000ms)
+- analysis_metrics took 16493ms (threshold: 2000ms)
+- reports_page took 22128ms (threshold: 2000ms)
+- estate_page took 3614ms (threshold: 2000ms)
+- Overview_load took 21382ms (threshold: 2000ms)
+- Alerts_load took 14519ms (threshold: 2000ms)
+- Analysis_load took 15078ms (threshold: 2000ms)
+- Reports_load took 19054ms (threshold: 2000ms)
+- Estate_load took 11574ms (threshold: 2000ms)
+- analysis_metrics took 15034ms (threshold: 2000ms)
+- reports_page took 10367ms (threshold: 2000ms)
+- estate_page took 2996ms (threshold: 2000ms)
+- Overview_load took 13393ms (threshold: 2000ms)
+- Alerts_load took 13036ms (threshold: 2000ms)
+- Analysis_load took 16010ms (threshold: 2000ms)
+- Reports_load took 16035ms (threshold: 2000ms)
+- Estate_load took 14245ms (threshold: 2000ms)
+- nav_overview took 3022ms (threshold: 3000ms)
+- nav_alerts took 8261ms (threshold: 3000ms)
+- nav_analysis took 8882ms (threshold: 3000ms)
+- nav_reports took 25573ms (threshold: 3000ms)
+- nav_estate took 61645ms (threshold: 3000ms)
+- util_settings took 5008ms (threshold: 3000ms)
+- util_feedback took 5013ms (threshold: 3000ms)
+- util_help took 5011ms (threshold: 3000ms)
+- util_whatsnew took 5015ms (threshold: 3000ms)
+- filters_alerts/inbox took 22918ms (threshold: 3000ms)
+- filters_analysis took 17146ms (threshold: 3000ms)
+- empty_globaldashboard took 8634ms (threshold: 3000ms)
+- empty_analysis took 9322ms (threshold: 3000ms)
+- empty_reports took 10078ms (threshold: 3000ms)
+- empty_states_test took 29571ms (threshold: 3000ms)
+- nav_overview took 7637ms (threshold: 3000ms)
+- nav_alerts took 6631ms (threshold: 3000ms)
+- nav_analysis took 17104ms (threshold: 3000ms)
+- nav_reports took 15085ms (threshold: 3000ms)
+- nav_estate took 62667ms (threshold: 3000ms)
+- util_settings took 5010ms (threshold: 3000ms)
+- util_feedback took 5008ms (threshold: 3000ms)
+- util_help took 5013ms (threshold: 3000ms)
+- util_whatsnew took 5017ms (threshold: 3000ms)
+- filters_alerts/inbox took 22864ms (threshold: 3000ms)
+- filters_analysis took 15083ms (threshold: 3000ms)
+- empty_globaldashboard took 6775ms (threshold: 3000ms)
+- empty_analysis took 9620ms (threshold: 3000ms)
+- empty_reports took 9866ms (threshold: 3000ms)
+- empty_states_test took 27855ms (threshold: 3000ms)
+- nav_alerts took 5276ms (threshold: 3000ms)
+- nav_analysis took 12302ms (threshold: 3000ms)
+- nav_reports took 14278ms (threshold: 3000ms)
+- nav_estate took 61509ms (threshold: 3000ms)
+- util_settings took 5008ms (threshold: 3000ms)
+- util_feedback took 5014ms (threshold: 3000ms)
+- util_help took 5014ms (threshold: 3000ms)
+- util_whatsnew took 5002ms (threshold: 3000ms)
+- filters_alerts/inbox took 22889ms (threshold: 3000ms)
+- filters_analysis took 15077ms (threshold: 3000ms)
+- empty_globaldashboard took 6537ms (threshold: 3000ms)
+- empty_analysis took 9573ms (threshold: 3000ms)
+- empty_reports took 11688ms (threshold: 3000ms)
+- empty_states_test took 29284ms (threshold: 3000ms)
+- nav_overview took 7545ms (threshold: 3000ms)
+- nav_alerts took 3234ms (threshold: 3000ms)
+- nav_analysis took 6677ms (threshold: 3000ms)
+- nav_reports took 13904ms (threshold: 3000ms)
+- nav_estate took 61962ms (threshold: 3000ms)
+- util_settings took 5004ms (threshold: 3000ms)
+- util_feedback took 5012ms (threshold: 3000ms)
+- util_help took 5008ms (threshold: 3000ms)
+- util_whatsnew took 5014ms (threshold: 3000ms)
+- filters_alerts/inbox took 22817ms (threshold: 3000ms)
+- filters_analysis took 14391ms (threshold: 3000ms)
+- empty_globaldashboard took 6581ms (threshold: 3000ms)
+- empty_analysis took 9509ms (threshold: 3000ms)
+- empty_reports took 10036ms (threshold: 3000ms)
+- empty_states_test took 28913ms (threshold: 3000ms)
+- nav_overview took 63815ms (threshold: 3000ms)
+- nav_alerts took 3478ms (threshold: 3000ms)
+- nav_analysis took 7602ms (threshold: 3000ms)
+- nav_estate took 61532ms (threshold: 3000ms)
+- util_settings took 5005ms (threshold: 3000ms)
+- util_feedback took 5013ms (threshold: 3000ms)
+- util_help took 5010ms (threshold: 3000ms)
+- util_whatsnew took 5014ms (threshold: 3000ms)
+- filters_alerts/inbox took 22981ms (threshold: 3000ms)
+- filters_analysis took 14419ms (threshold: 3000ms)
+- empty_globaldashboard took 6828ms (threshold: 3000ms)
+- empty_analysis took 9872ms (threshold: 3000ms)
+- empty_reports took 10661ms (threshold: 3000ms)
+- empty_states_test took 29730ms (threshold: 3000ms)
+- nav_overview took 62959ms (threshold: 3000ms)
+- nav_alerts took 3983ms (threshold: 3000ms)
+- nav_analysis took 5927ms (threshold: 3000ms)
+- nav_reports took 5632ms (threshold: 3000ms)
+- nav_estate took 61526ms (threshold: 3000ms)
+- util_settings took 5009ms (threshold: 3000ms)
+- util_feedback took 5014ms (threshold: 3000ms)
+- util_help took 5008ms (threshold: 3000ms)
+- util_whatsnew took 5016ms (threshold: 3000ms)
+- filters_alerts/inbox took 23983ms (threshold: 3000ms)
+- filters_analysis took 15013ms (threshold: 3000ms)
+- empty_globaldashboard took 6740ms (threshold: 3000ms)
+- empty_analysis took 9526ms (threshold: 3000ms)
+- empty_reports took 10819ms (threshold: 3000ms)
+- empty_states_test took 29037ms (threshold: 3000ms)
+- nav_overview took 5511ms (threshold: 3000ms)
+- nav_alerts took 8743ms (threshold: 3000ms)
+- nav_analysis took 18792ms (threshold: 3000ms)
+- nav_reports took 13185ms (threshold: 3000ms)
+- nav_estate took 62512ms (threshold: 3000ms)
+- util_settings took 5011ms (threshold: 3000ms)
+- util_feedback took 5015ms (threshold: 3000ms)
+- util_help took 5008ms (threshold: 3000ms)
+- util_whatsnew took 5013ms (threshold: 3000ms)
+- filters_alerts/inbox took 23224ms (threshold: 3000ms)
+- filters_analysis took 17030ms (threshold: 3000ms)
+- empty_globaldashboard took 6772ms (threshold: 3000ms)
+- empty_analysis took 10627ms (threshold: 3000ms)
+- empty_reports took 10011ms (threshold: 3000ms)
+- empty_states_test took 28980ms (threshold: 3000ms)
+- nav_overview took 6503ms (threshold: 3000ms)
+- nav_alerts took 10119ms (threshold: 3000ms)
+- nav_analysis took 24948ms (threshold: 3000ms)
+- nav_reports took 16980ms (threshold: 3000ms)
+- nav_estate took 61995ms (threshold: 3000ms)
+- util_settings took 5017ms (threshold: 3000ms)
+- util_feedback took 5009ms (threshold: 3000ms)
+- util_help took 5008ms (threshold: 3000ms)
+- util_whatsnew took 5015ms (threshold: 3000ms)
+- filters_alerts/inbox took 23170ms (threshold: 3000ms)
+- filters_analysis took 17703ms (threshold: 3000ms)
+- empty_globaldashboard took 6725ms (threshold: 3000ms)
+- empty_analysis took 11782ms (threshold: 3000ms)
+- empty_reports took 10791ms (threshold: 3000ms)
+- empty_states_test took 31093ms (threshold: 3000ms)
+- nav_overview took 4756ms (threshold: 3000ms)
+- nav_alerts took 11767ms (threshold: 3000ms)
+- nav_analysis took 22938ms (threshold: 3000ms)
+- nav_estate took 61614ms (threshold: 3000ms)
+- util_settings took 5011ms (threshold: 3000ms)
+- util_feedback took 5004ms (threshold: 3000ms)
+- util_help took 5017ms (threshold: 3000ms)
+- util_whatsnew took 5010ms (threshold: 3000ms)
+- filters_alerts/inbox took 23738ms (threshold: 3000ms)
+- filters_analysis took 17221ms (threshold: 3000ms)
+- empty_globaldashboard took 7011ms (threshold: 3000ms)
+- empty_analysis took 10228ms (threshold: 3000ms)
+- empty_reports took 13963ms (threshold: 3000ms)
+- empty_states_test took 32754ms (threshold: 3000ms)
+- nav_overview took 3985ms (threshold: 3000ms)
+- nav_alerts took 13608ms (threshold: 3000ms)
+- nav_analysis took 30248ms (threshold: 3000ms)
+- nav_reports took 9663ms (threshold: 3000ms)
+- nav_estate took 61600ms (threshold: 3000ms)
+- util_settings took 5019ms (threshold: 3000ms)
+- util_feedback took 5017ms (threshold: 3000ms)
+- util_help took 5003ms (threshold: 3000ms)
+- util_whatsnew took 5013ms (threshold: 3000ms)
+- filters_alerts/inbox took 23114ms (threshold: 3000ms)
+- filters_analysis took 15180ms (threshold: 3000ms)
+- empty_globaldashboard took 9572ms (threshold: 3000ms)
+- empty_analysis took 10211ms (threshold: 3000ms)
+- empty_reports took 10773ms (threshold: 3000ms)
+- empty_states_test took 32154ms (threshold: 3000ms)
+- nav_overview took 71570ms (threshold: 3000ms)
+- nav_alerts took 15313ms (threshold: 3000ms)
+- nav_analysis took 18682ms (threshold: 3000ms)
+- nav_estate took 61798ms (threshold: 3000ms)
+- util_settings took 5021ms (threshold: 3000ms)
+- util_feedback took 5009ms (threshold: 3000ms)
+- util_help took 5007ms (threshold: 3000ms)
+- util_whatsnew took 5020ms (threshold: 3000ms)
+- filters_alerts/inbox took 23917ms (threshold: 3000ms)
+- filters_analysis took 18493ms (threshold: 3000ms)
+- empty_globaldashboard took 6709ms (threshold: 3000ms)
+- empty_analysis took 10735ms (threshold: 3000ms)
+- empty_reports took 9702ms (threshold: 3000ms)
+- empty_states_test took 29702ms (threshold: 3000ms)
+- nav_overview took 62123ms (threshold: 3000ms)
+- nav_alerts took 5441ms (threshold: 3000ms)
+- nav_analysis took 8743ms (threshold: 3000ms)
+- nav_estate took 63368ms (threshold: 3000ms)
+- util_settings took 5015ms (threshold: 3000ms)
+- util_feedback took 5018ms (threshold: 3000ms)
+- util_help took 5007ms (threshold: 3000ms)
+- util_whatsnew took 5011ms (threshold: 3000ms)
+- filters_alerts/inbox took 23705ms (threshold: 3000ms)
+- filters_analysis took 15604ms (threshold: 3000ms)
+- empty_globaldashboard took 6667ms (threshold: 3000ms)
+- empty_analysis took 10417ms (threshold: 3000ms)
+- empty_reports took 10850ms (threshold: 3000ms)
+- empty_states_test took 30240ms (threshold: 3000ms)
+- nav_overview took 6054ms (threshold: 3000ms)
+- nav_alerts took 7422ms (threshold: 3000ms)
+- nav_analysis took 17335ms (threshold: 3000ms)
+- nav_reports took 14993ms (threshold: 3000ms)
+- nav_estate took 62431ms (threshold: 3000ms)
+- util_settings took 5004ms (threshold: 3000ms)
+- util_feedback took 5008ms (threshold: 3000ms)
+- util_help took 5006ms (threshold: 3000ms)
+- util_whatsnew took 5005ms (threshold: 3000ms)
+- filters_alerts/inbox took 23150ms (threshold: 3000ms)
+- filters_analysis took 15420ms (threshold: 3000ms)
+- empty_globaldashboard took 6659ms (threshold: 3000ms)
+- empty_analysis took 10170ms (threshold: 3000ms)
+- empty_reports took 9377ms (threshold: 3000ms)
+- empty_states_test took 27864ms (threshold: 3000ms)
+- nav_overview took 6624ms (threshold: 3000ms)
+- nav_alerts took 11422ms (threshold: 3000ms)
+- nav_analysis took 23078ms (threshold: 3000ms)
+- nav_estate took 62210ms (threshold: 3000ms)
+- util_settings took 5011ms (threshold: 3000ms)
+- util_feedback took 5002ms (threshold: 3000ms)
+- util_help took 5015ms (threshold: 3000ms)
+- util_whatsnew took 5012ms (threshold: 3000ms)
+- filters_alerts/inbox took 23830ms (threshold: 3000ms)
+- filters_analysis took 16813ms (threshold: 3000ms)
+- empty_globaldashboard took 6923ms (threshold: 3000ms)
+- empty_analysis took 10138ms (threshold: 3000ms)
+- empty_reports took 9894ms (threshold: 3000ms)
+- empty_states_test took 28469ms (threshold: 3000ms)
+- nav_overview took 4405ms (threshold: 3000ms)
+- nav_alerts took 3322ms (threshold: 3000ms)
+- nav_analysis took 41842ms (threshold: 3000ms)
+- nav_reports took 15735ms (threshold: 3000ms)
+- nav_estate took 61467ms (threshold: 3000ms)
+- util_settings took 5013ms (threshold: 3000ms)
+- util_feedback took 5015ms (threshold: 3000ms)
+- util_help took 5009ms (threshold: 3000ms)
+- util_whatsnew took 5002ms (threshold: 3000ms)
+- filters_alerts/inbox took 24307ms (threshold: 3000ms)
+- filters_analysis took 17472ms (threshold: 3000ms)
+- empty_globaldashboard took 6681ms (threshold: 3000ms)
+- empty_analysis took 10871ms (threshold: 3000ms)
+- empty_reports took 11520ms (threshold: 3000ms)
+- empty_states_test took 30678ms (threshold: 3000ms)
+- nav_overview took 4174ms (threshold: 3000ms)
+- nav_alerts took 14117ms (threshold: 3000ms)
+- nav_analysis took 42060ms (threshold: 3000ms)
+- nav_estate took 61540ms (threshold: 3000ms)
+- util_settings took 5009ms (threshold: 3000ms)
+- util_feedback took 5002ms (threshold: 3000ms)
+- util_help took 5016ms (threshold: 3000ms)
+- util_whatsnew took 5006ms (threshold: 3000ms)
+- filters_alerts/inbox took 23500ms (threshold: 3000ms)
+- filters_analysis took 15062ms (threshold: 3000ms)
+- empty_globaldashboard took 7471ms (threshold: 3000ms)
+- empty_analysis took 10178ms (threshold: 3000ms)
+- empty_reports took 9611ms (threshold: 3000ms)
+- empty_states_test took 28784ms (threshold: 3000ms)
+- nav_overview took 67055ms (threshold: 3000ms)
+- nav_alerts took 7107ms (threshold: 3000ms)
+- nav_analysis took 20259ms (threshold: 3000ms)
+- nav_reports took 14096ms (threshold: 3000ms)
+- nav_estate took 62354ms (threshold: 3000ms)
+- util_settings took 5007ms (threshold: 3000ms)
+- util_feedback took 5003ms (threshold: 3000ms)
+- util_help took 5001ms (threshold: 3000ms)
+- util_whatsnew took 5008ms (threshold: 3000ms)
+- filters_alerts/inbox took 25321ms (threshold: 3000ms)
+- filters_analysis took 16769ms (threshold: 3000ms)
+- empty_globaldashboard took 6838ms (threshold: 3000ms)
+- empty_analysis took 10319ms (threshold: 3000ms)
+- empty_reports took 9166ms (threshold: 3000ms)
+- empty_states_test took 28182ms (threshold: 3000ms)
+- nav_overview took 61772ms (threshold: 3000ms)
+- nav_alerts took 3546ms (threshold: 3000ms)
+- nav_analysis took 6417ms (threshold: 3000ms)
+- nav_reports took 64212ms (threshold: 3000ms)
+- nav_estate took 61581ms (threshold: 3000ms)
+- util_settings took 5013ms (threshold: 3000ms)
+- util_feedback took 5004ms (threshold: 3000ms)
+- util_help took 5005ms (threshold: 3000ms)
+- util_whatsnew took 5003ms (threshold: 3000ms)
+- filters_alerts/inbox took 24451ms (threshold: 3000ms)
+- filters_analysis took 15385ms (threshold: 3000ms)
+- empty_globaldashboard took 6703ms (threshold: 3000ms)
+- empty_analysis took 10332ms (threshold: 3000ms)
+- empty_reports took 9608ms (threshold: 3000ms)
+- empty_states_test took 28595ms (threshold: 3000ms)
+- nav_overview took 9678ms (threshold: 3000ms)
+- nav_alerts took 6260ms (threshold: 3000ms)
+- nav_analysis took 18812ms (threshold: 3000ms)
+- nav_reports took 13872ms (threshold: 3000ms)
+- nav_estate took 63782ms (threshold: 3000ms)
+- util_settings took 5010ms (threshold: 3000ms)
+- util_feedback took 5013ms (threshold: 3000ms)
+- util_help took 5002ms (threshold: 3000ms)
+- util_whatsnew took 5001ms (threshold: 3000ms)
+- filters_alerts/inbox took 23156ms (threshold: 3000ms)
+- filters_analysis took 16875ms (threshold: 3000ms)
+- empty_globaldashboard took 6828ms (threshold: 3000ms)
+- empty_analysis took 12328ms (threshold: 3000ms)
+- empty_reports took 9734ms (threshold: 3000ms)
+- empty_states_test took 31284ms (threshold: 3000ms)
+- nav_alerts took 4555ms (threshold: 3000ms)
+- nav_analysis took 20941ms (threshold: 3000ms)
+- nav_reports took 15587ms (threshold: 3000ms)
+- nav_estate took 64039ms (threshold: 3000ms)
+- util_settings took 5013ms (threshold: 3000ms)
+- util_feedback took 5007ms (threshold: 3000ms)
+- util_help took 5013ms (threshold: 3000ms)
+- util_whatsnew took 5006ms (threshold: 3000ms)
+- filters_alerts/inbox took 22912ms (threshold: 3000ms)
+- filters_analysis took 16626ms (threshold: 3000ms)
+- empty_globaldashboard took 7311ms (threshold: 3000ms)
+- empty_analysis took 11569ms (threshold: 3000ms)
+- empty_reports took 10594ms (threshold: 3000ms)
+- empty_states_test took 31048ms (threshold: 3000ms)
+- nav_alerts took 3389ms (threshold: 3000ms)
+- nav_analysis took 12999ms (threshold: 3000ms)
+- nav_estate took 63974ms (threshold: 3000ms)
+- util_settings took 5006ms (threshold: 3000ms)
+- util_feedback took 5016ms (threshold: 3000ms)
+- util_help took 5014ms (threshold: 3000ms)
+- util_whatsnew took 5009ms (threshold: 3000ms)
+- filters_alerts/inbox took 26495ms (threshold: 3000ms)
+- filters_analysis took 15185ms (threshold: 3000ms)
+- empty_globaldashboard took 6963ms (threshold: 3000ms)
+- empty_analysis took 10402ms (threshold: 3000ms)
+- empty_reports took 13905ms (threshold: 3000ms)
+- empty_states_test took 32927ms (threshold: 3000ms)
+- nav_analysis took 24476ms (threshold: 3000ms)
+- nav_reports took 12386ms (threshold: 3000ms)
+- nav_estate took 61557ms (threshold: 3000ms)
+- util_settings took 5013ms (threshold: 3000ms)
+- util_feedback took 5009ms (threshold: 3000ms)
+- util_help took 5010ms (threshold: 3000ms)
+- util_whatsnew took 5005ms (threshold: 3000ms)
+- filters_alerts/inbox took 23170ms (threshold: 3000ms)
+- filters_analysis took 16686ms (threshold: 3000ms)
+- empty_globaldashboard took 6901ms (threshold: 3000ms)
+- empty_analysis took 10612ms (threshold: 3000ms)
+- empty_reports took 10043ms (threshold: 3000ms)
+- empty_states_test took 29185ms (threshold: 3000ms)
+- nav_overview took 63317ms (threshold: 3000ms)
+- nav_alerts took 7113ms (threshold: 3000ms)
+- nav_analysis took 13458ms (threshold: 3000ms)
+- nav_reports took 7680ms (threshold: 3000ms)
+- nav_estate took 61742ms (threshold: 3000ms)
+- util_settings took 5005ms (threshold: 3000ms)
+- util_feedback took 5005ms (threshold: 3000ms)
+- util_help took 5005ms (threshold: 3000ms)
+- util_whatsnew took 5005ms (threshold: 3000ms)
+- filters_alerts/inbox took 24972ms (threshold: 3000ms)
+- filters_analysis took 15665ms (threshold: 3000ms)
+- empty_globaldashboard took 7416ms (threshold: 3000ms)
+- empty_analysis took 10319ms (threshold: 3000ms)
+- empty_reports took 9320ms (threshold: 3000ms)
+- empty_states_test took 29277ms (threshold: 3000ms)
+- nav_overview took 62209ms (threshold: 3000ms)
+- nav_alerts took 4517ms (threshold: 3000ms)
+- nav_analysis took 8551ms (threshold: 3000ms)
+- nav_reports took 5321ms (threshold: 3000ms)
+- nav_estate took 61758ms (threshold: 3000ms)
+- util_settings took 5008ms (threshold: 3000ms)
+- util_feedback took 5015ms (threshold: 3000ms)
+- util_help took 5010ms (threshold: 3000ms)
+- util_whatsnew took 5003ms (threshold: 3000ms)
+- filters_alerts/inbox took 23688ms (threshold: 3000ms)
+- filters_analysis took 15561ms (threshold: 3000ms)
+- empty_globaldashboard took 7358ms (threshold: 3000ms)
+- empty_analysis took 13723ms (threshold: 3000ms)
+- empty_reports took 12035ms (threshold: 3000ms)
+- empty_states_test took 35154ms (threshold: 3000ms)
+

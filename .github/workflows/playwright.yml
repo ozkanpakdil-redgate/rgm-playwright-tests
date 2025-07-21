@@ -869,7 +869,7 @@ jobs:
                 
                 <div style="text-align: center; margin-top: 40px; color: #666;">
                     <p>📋 Generated from GitHub Actions workflow</p>
-                    <p><a href="https://github.com/YOUR_REPO/actions" style="color: #1565c0;">View workflow runs</a></p>
+                    <p><a href="https://github.com/${{ github.repository }}/actions" style="color: #1565c0;">View workflow runs</a></p>
                 </div>
             </div>
             
