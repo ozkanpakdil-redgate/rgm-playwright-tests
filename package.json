@@ -10,7 +10,10 @@
     "test": "playwright test && node utils/update-performance-report.js",
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed"
+    "test:headed": "playwright test --headed",
+    "report:detailed": "node utils/detailed-report-generator.js",
+    "report:show": "npx playwright show-report test-reports",
+    "test:single": "playwright test --workers=1"
   },
   "dependencies": {
     "playwright": "^1.53.0",

@@ -744,15 +744,38 @@ jobs:
         retention-days: 7
         if-no-files-found: ignore
 
+    - name: Generate detailed test report
+      if: always()
+      run: node utils/detailed-report-generator.js
+      continue-on-error: true
+
+    - name: Upload enhanced test reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: enhanced-test-reports
+        path: |
+          test-reports/detailed-test-report.html
+          test-reports/test-summary.json
+        retention-days: 30
+        if-no-files-found: ignore
+
     - name: Prepare Playwright report for GitHub Pages
       if: github.ref == 'refs/heads/main' && always()
       run: |
         # Create a directory structure for GitHub Pages
         mkdir -p playwright-report
         
-        # Copy the Playwright HTML report to the pages directory
+        # Generate and copy the enhanced detailed report
+        if [ -f "test-reports/detailed-test-report.html" ]; then
+          echo "📋 Using enhanced detailed test report..."
+          cp test-reports/detailed-test-report.html playwright-report/index.html
+        fi
+        
+        # Copy the original Playwright HTML report
         if [ -f "test-reports/index.html" ]; then
-          echo "📋 Preparing Playwright report for GitHub Pages deployment..."
+          echo "📋 Preparing original Playwright report for GitHub Pages deployment..."
+          cp test-reports/index.html playwright-report/original-report.html
           cp -r test-reports/* playwright-report/ 2>/dev/null || true
           
           # Also copy screenshots if they exist
@@ -777,7 +800,7 @@ jobs:
           fi
           
           # Create an enhanced index page with navigation
-          cat > playwright-report/index.html << 'EOF'
+          cat > playwright-report/navigation.html << 'EOF'
         <!DOCTYPE html>
         <html>
         <head>
@@ -792,7 +815,8 @@ jobs:
                 }
                 .container { max-width: 1200px; margin: 0 auto; }
                 .header { 
-                    background: white; 
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                    color: white;
                     padding: 30px; 
                     border-radius: 8px; 
                     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -828,6 +852,7 @@ jobs:
                 }
                 .status.available { background: #e8f5e8; color: #2d5016; }
                 .status.main-report { background: #e3f2fd; color: #1565c0; }
+                .status.enhanced { background: #fff3e0; color: #e65100; }
             </style>
         </head>
         <body>
@@ -838,11 +863,18 @@ jobs:
                 </div>
                 
                 <div class="nav-grid">
-                    <a href="./test-results.html" class="nav-card">
+                    <a href="./index.html" class="nav-card">
+                        <span class="emoji">🚀</span>
+                        <h3>Enhanced Test Report</h3>
+                        <p>Interactive detailed report with test breakdowns, filters, and performance insights</p>
+                        <span class="status enhanced">ENHANCED</span>
+                    </a>
+                    
+                    <a href="./original-report.html" class="nav-card">
                         <span class="emoji">🎭</span>
-                        <h3>Main Test Report</h3>
-                        <p>Interactive Playwright HTML report with test results, timelines, and traces</p>
-                        <span class="status main-report">PRIMARY REPORT</span>
+                        <h3>Original Playwright Report</h3>
+                        <p>Standard Playwright HTML report with test results, timelines, and traces</p>
+                        <span class="status main-report">ORIGINAL</span>
                     </a>
                     
                     <a href="./screenshots/" class="nav-card">
@@ -874,12 +906,16 @@ jobs:
             </div>
             
             <script>
-                // Auto-redirect to main report after 3 seconds if no interaction
-                setTimeout(() => {
+                // Auto-redirect to enhanced report after 5 seconds if no interaction
+                let redirectTimer = setTimeout(() => {
                     if (!document.querySelector(':hover')) {
-                        window.location.href = './test-results.html';
+                        window.location.href = './index.html';
                     }
-                }, 3000);
+                }, 5000);
+                
+                // Cancel redirect on user interaction
+                document.addEventListener('mouseenter', () => clearTimeout(redirectTimer));
+                document.addEventListener('click', () => clearTimeout(redirectTimer));
             </script>
         </body>
         </html>
