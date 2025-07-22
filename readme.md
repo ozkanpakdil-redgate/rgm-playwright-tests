@@ -1,6 +1,6 @@
 # RGM Playwright Tests
 
-[![Playwright Tests](https://github.com/[username]/rgm-playwright-tests/actions/workflows/playwright.yml/badge.svg)](https://github.com/[username]/rgm-playwright-tests/actions/workflows/playwright.yml)
+[Playwright Dashboard](https://ozkanpakdil-redgate.github.io/rgm-playwright-tests/)
 
 ## 🚀 Unified Test Workflow
 
